@@ -19,11 +19,12 @@ const DIGITS: &[(&str, u32)] = &[
     ("9", 9)
 ];
 
-pub fn run(input: &str) -> u32 {
+pub fn run(input: &str) -> String {
     return input
         .lines()
         .filter_map(|s| get_both(s))
-        .sum();
+        .sum::<u32>()
+        .to_string();
 }
 
 pub fn get_both(s: &str) -> Option<u32> {

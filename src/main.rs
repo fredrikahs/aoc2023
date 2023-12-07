@@ -1,9 +1,6 @@
 use std::env;
 use std::fs;
-use aoc2023::{
-    day1_1,
-    day1_2,
-};
+use aoc2023::get_solution;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -14,6 +11,22 @@ fn main() {
         return;
     }
 
+    let day = match args[1].parse::<u8>() {
+        Ok(number) => number,
+        Err(_) => {
+            eprintln!("Invalid day");
+            return;
+        }
+    };
+
+    let part = match args[2].parse::<u8>() {
+        Ok(number) => number,
+        Err(_) => {
+            eprintln!("Invalid part");
+            return;
+        }
+    };
+
     let input = match fs::read_to_string(&args[3]) {
         Ok(content) => content,
         Err(error) => {
@@ -22,14 +35,15 @@ fn main() {
         },
     };
 
-    let total = match (args[1].as_str(), args[2].as_str()) {
-        ("1", "1") => day1_1::run(&input),
-        ("1", "2") => day1_2::run(&input),
-        _ => {
-            eprintln!("Unknown day or part: {} {}", args[1], args[2]);
+    let solution = match get_solution(day, part) {
+        Some(sln) => sln,
+        None => {
+            eprintln!("Day {0} Part {1} is not implemented", day, part);
             return;
-        },
+        }
     };
 
-    println!("The total was {}", total);
+    let result = solution(&input);
+
+    println!("The result was {}", result);
 }
