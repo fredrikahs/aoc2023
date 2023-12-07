@@ -1,4 +1,4 @@
-pub fn get_solution(day: u8, part: u8) -> Option<fn(&str) -> String> {
+pub fn get_solution(day: u8, part: u8) -> Option<fn(&str) -> Option<String>> {
     match (day, part) {
         (1, 1) => Some(day1_1::run),
         (1, 2) => Some(day1_2::run),

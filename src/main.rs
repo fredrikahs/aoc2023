@@ -43,7 +43,10 @@ fn main() {
         }
     };
 
-    let result = solution(&input);
+    let Some(result) = solution(&input) else {
+        eprintln!("No result");
+        return;
+    };
 
     println!("The result was {}", result);
 }

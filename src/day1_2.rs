@@ -19,12 +19,12 @@ const DIGITS: &[(&str, u32)] = &[
     ("9", 9)
 ];
 
-pub fn run(input: &str) -> String {
-    return input
+pub fn run(input: &str) -> Option<String> {
+    return Some(input
         .lines()
         .filter_map(|s| get_both(s))
         .sum::<u32>()
-        .to_string();
+        .to_string());
 }
 
 pub fn get_both(s: &str) -> Option<u32> {
@@ -124,6 +124,6 @@ zoneight234
 7pqrstsixteen";
 
         let actual = run(input);
-        assert_eq!(281, actual);
+        assert_eq!(Some("281".to_string()), actual);
     }
 }

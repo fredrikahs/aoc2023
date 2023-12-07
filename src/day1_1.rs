@@ -1,9 +1,9 @@
-pub fn run(input: &str) -> String {
-    return input
+pub fn run(input: &str) -> Option<String> {
+    return Some(input
         .lines()
         .map(|s| get_both(s))
         .sum::<u32>()
-        .to_string();
+        .to_string());
 }
 
 fn get_both(x: &str) -> u32 {
