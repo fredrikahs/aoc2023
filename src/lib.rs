@@ -5,7 +5,7 @@ pub fn get_solution(day: u8, part: u8) -> Option<fn(&str) -> Option<String>> {
         (2, 1) => Some(day2_1::run),
         (2, 2) => Some(day2_2::run),
         (3, 1) => Some(day3_1::run),
-        // (3, 2) => Some(day3_2::run),
+        (3, 2) => Some(day3_2::run),
         // (4, 1) => Some(day4_1::run),
         // (4, 2) => Some(day4_2::run),
         // (5, 1) => Some(day5_1::run),
@@ -59,7 +59,7 @@ mod day1_2;
 mod day2_1;
 mod day2_2;
 mod day3_1;
-// mod day3_2;
+mod day3_2;
 // mod day4_1;
 // mod day4_2;
 // mod day5_1;

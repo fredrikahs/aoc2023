@@ -1,11 +1,11 @@
 use regex::Regex;
 
-#[derive(PartialEq, Clone, Debug)]
-struct Position {
-    line: usize,
-    start: usize,
-    end: usize,
-    number: u32,
+#[derive(PartialEq, Copy, Clone, Debug)]
+pub struct Position {
+    pub line: usize,
+    pub start: usize,
+    pub end: usize,
+    pub number: u32,
 }
 
 pub fn run(input: &str) -> Option<String> {
@@ -33,7 +33,7 @@ pub fn run(input: &str) -> Option<String> {
     return Some(total.to_string());
 }
 
-fn get_numbers_with_positions(input: &str) -> Vec<Position> {
+pub fn get_numbers_with_positions(input: &str) -> Vec<Position> {
     let number_regex = Regex::new(r"(\d+)").unwrap();
     return input
         .lines()
